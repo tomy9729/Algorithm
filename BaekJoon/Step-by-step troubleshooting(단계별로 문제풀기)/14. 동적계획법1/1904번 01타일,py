@@ -1,0 +1,11 @@
+#1904번 01타일
+n = int(input())
+
+tile_num = [0]*1000001
+tile_num[1] = 1
+tile_num[2] = 2
+
+for i in range(3, n+1) : 
+  tile_num[i] = (tile_num[i-1] + tile_num[i-2])%15746
+
+print(tile_num[n])
