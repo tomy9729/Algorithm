@@ -20,3 +20,17 @@ for i in range(n) : # i는 부분수열의 길이
         length.append(len(sub_arr[i+1][-1]))
 
 print(max(length))
+
+
+#11053번 가장 긴 증가하는 부분 수열
+n = int(input())
+arr = []
+arr = list(map(int,input().split()))
+length = [1]*n
+
+for i in range(n) : 
+  for j in range(i,n) : 
+    if arr[i] < arr[j] : 
+      length[j] = max(length[i]+1,length[j])
+print(length)
+print(max(length))
