@@ -333,3 +333,63 @@ for i in range(n) :
   length.append(length_up[i] + list(reversed(length_down))[i]) # 각 인덱스마다 두 개 길이를 더해 줌
 
 print(max(length)-1) # 인덱스는 중복되어 두번씩 세지기 때문에 하나를 뺌
+
+#2565번 전깃줄
+n = int(input())
+
+line = []
+for i in range(n) : 
+  line.append(list(map(int,input().split())))
+line_count = [1]*n
+
+line.sort(key = lambda x : x[0])
+
+for i in range(n) : 
+  for j in range(i) : 
+    if line[i][1] > line[j][1] : 
+      line_count[i] = max(line_count[i],line_count[j]+1)
+
+print(n-max(line_count))
+
+#9251번 LCS
+string_1 = input()
+string_2 = input()
+arr = [[0]*(len(string_2)+1) for i in range(len(string_1)+1)]
+#각 배열을 하나씩 증가하면서 LCS의 개수를 저장할 배열
+
+for i in range(1,len(string_1)+1) : 
+  for j in range(1,len(string_2)+1) : 
+    if string_1[i-1] == string_2[j-1] : 
+      arr[i][j] = arr[i-1][j-1]+1 # 두 문자가 같다면 이전까지 LCS길이에서 +1
+    else :
+      arr[i][j] = max(arr[i-1][j],arr[i][j-1]) # 두 문자가 다르다면 이전 LCS 중 가장 큰 값
+
+print(max(arr[len(string_1)]))
+
+#1912번 연속합
+n = int(input())
+num_arr = list(map(int,input().split()))
+arr = [0]*n
+arr[0] = num_arr[0]
+for i in range(n) : 
+  arr[i] = max(num_arr[i],arr[i-1]+num_arr[i]) #이전까지의 합이 음수라면 현재 수와 더하지 않고 새로 시작
+
+print(max(arr))
+
+#12865번 평범한 배낭
+#import sys
+#input = sys.stdin.readline
+n,k = map(int,input().split())
+wv = [[0]*2 for i in range(n+1)]
+start = 98765  
+bag = [[0]*(k+1) for i in range(n+1)]
+
+for i in range(1,n+1) :
+  wv[i] = list(map(int,input().split()))
+  start = min(start,wv[i][0])
+  for j in range(start,k+1) :
+    if wv[i][0] <= j : 
+      bag[i][j] = max(wv[i][1]+bag[i-1][j-wv[i][0]],bag[i-1][j])
+    else : 
+      bag[i][j] = bag[i-1][j]
+print(bag[n][k])
