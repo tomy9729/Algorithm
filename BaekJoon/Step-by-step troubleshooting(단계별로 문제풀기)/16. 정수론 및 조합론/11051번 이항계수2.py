@@ -6,7 +6,7 @@ K=k
 if k == 0 : 
   print(1)
 else :
-  while k != 1 : 
+  while k != 1 : # 이항 계수 공식 
     n -= 1
     N = N*n
     
