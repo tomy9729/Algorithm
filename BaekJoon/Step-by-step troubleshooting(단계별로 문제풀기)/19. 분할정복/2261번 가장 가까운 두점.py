@@ -20,17 +20,7 @@ def d_min(points) :
   for i in range(len(check)-1) : 
     for j in range(i+1,len(check)) : 
       if (check[i][1]-check[j][1])**2 < d :  # y좌표 기준으로 d보다 짧은 거리에 있는 점들만
-        d = min(d,distance(check[i],check[j])) # 확인   for j in range(i+1,len(check)) : 
-              if (check[i][1]-check[j][1])**2 < d :  # y좌표 기준으로 d보다 짧은 거리에 있는 점들만
-                      d = min(d,distance(check[i],check[j])) # 확인
-                            else : 
-                                    break
-                                      return d
-
-                                      #main
-                                      num = int(input())
-                                      point = []
-                                      
+        d = min(d,distance(check[i],check[j])) # 확인   
       else : 
         break
   return d
