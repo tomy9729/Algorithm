@@ -1,7 +1,7 @@
 #10816번 숫자 카드2
 #import sys
 #input = sys.stdin.readline
-def lower_bound(nums, num) : # num보다 작은 수 중 제일 큰 값 찾기
+def lower_bound(nums, num) : # 가장 먼저 나오는 num 이상인 수
   start = 0
   end = len(nums)-1
   
@@ -13,7 +13,7 @@ def lower_bound(nums, num) : # num보다 작은 수 중 제일 큰 값 찾기
       start = mid + 1 #start를 mid+1로
   return end
 
-def upped_bound(nums, num) : # num보다 큰 수 중 가장 큰 값 찾기
+def upped_bound(nums, num) : # 가장 먼저 나오는 num 초과인 수
   start = 0
   end = len(nums)-1
 
