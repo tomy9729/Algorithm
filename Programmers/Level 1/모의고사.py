@@ -1,4 +1,4 @@
-# level1 모의고사
+#Level 1 모의고사
 def solution(answers):
     supo = [0]*3
     supo_1 = [1,2,3,4,5]
