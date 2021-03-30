@@ -1,3 +1,4 @@
+# Level 1 신규 
 def solution(new_id):    
     #1단계
     new_id = new_id.lower()
