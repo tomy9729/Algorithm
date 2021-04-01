@@ -1,4 +1,4 @@
-#Level 1 체육복(java)
+#Level 1 체육복.java
 import java.util.Arrays;
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
