@@ -1,4 +1,4 @@
-#7576번 토마토
+#7576번 토마토 
 from collections import deque
 def BFS(graph,x,y, visited, when) :
   q = deque()
