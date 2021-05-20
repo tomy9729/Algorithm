@@ -1,5 +1,5 @@
 #1259번 팰린드롬수
-def solve(n) : 
+def solve(n) :  
   n = list(str(n))
   length = len(n)
   for i in range(length//2) : 
