@@ -1,4 +1,6 @@
 #10845번 큐.py
+import sys
+input = sys.stdin.readline
 from collections import deque
 if __name__ == "__main__":
   q = deque()
