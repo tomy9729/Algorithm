@@ -1,5 +1,5 @@
 #10026번 적록색약
-def weakness(i,j,visit,n,graph) : 
+def no_weakness(i,j,visit,n,graph) : 
   di = [1,0,-1,0]
   dj = [0,1,0,-1]
   visit[i][j] = True
@@ -18,7 +18,7 @@ def weakness(i,j,visit,n,graph) :
           q.append([next_i,next_j])
           
 
-def no_weakness(i,j,visit,n,graph) : # R==G
+def weakness(i,j,visit,n,graph) : # R==G
   di = [1,0,-1,0]
   dj = [0,1,0,-1]
   visit[i][j] = True
@@ -47,16 +47,8 @@ if __name__ == "__main__":
   for i in range(n) : 
     graph[i] = list(input())
 
-  w = 0
-  
-  visit = [[False]*n for _ in range(n)]
-  for i in range(n) : 
-    for j in range(n) : 
-      if visit[i][j] == False : 
-        weakness(i,j,visit,n,graph)
-        w += 1
-
   no_w = 0
+  
   visit = [[False]*n for _ in range(n)]
   for i in range(n) : 
     for j in range(n) : 
@@ -64,4 +56,12 @@ if __name__ == "__main__":
         no_weakness(i,j,visit,n,graph)
         no_w += 1
 
-  print("%d %d"%(w,no_w))
+  w = 0
+  visit = [[False]*n for _ in range(n)]
+  for i in range(n) : 
+    for j in range(n) : 
+      if visit[i][j] == False : 
+        weakness(i,j,visit,n,graph)
+        w += 1
+
+  print("%d %d"%(no_w,w))
