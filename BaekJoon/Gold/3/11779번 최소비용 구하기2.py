@@ -6,21 +6,21 @@ input = sys.stdin.readline
 
 def dijkstra(start,visit,buses,costs,root) : 
     q=[]
-    root[start]=[start]
+    root[start]=[start] #시작 경로 설정
     costs[start]=0
-    heapq.heappush(q,(0,start,root[start]))
+    heapq.heappush(q,(0,start,root[start])) #heap에 비용, 출발 노드, 경로 저장
     visit[start]=True
 
     while q :
-        cost, now, root_to_now = heapq.heappop(q)
-        if costs[now] < cost :
+        cost, now, root_to_now = heapq.heappop(q) #가장 작은 가중치를 가진 노드 선택->현재 위치
+        if costs[now] < cost : #선택한 노드의 가중치가, 이미 저장된 선택한 노드까지의 가중치보다 크다면 
             continue
         for bus in buses[now] : 
-            next_cost = cost+bus[1]
-            if next_cost < costs[bus[0]] : 
-                costs[bus[0]]=next_cost
-                root[bus[0]] = root_to_now+[bus[0]]
-                heapq.heappush(q,(next_cost,bus[0],root[bus[0]]))
+            next_cost = cost+bus[1] #now에서 버스를 타고 "다음 노드"로 가는 가중치 계산
+            if next_cost < costs[bus[0]] : #가중치가 "이미 저장된 다음 노드로 가는 가중치" 보다 작다면
+                costs[bus[0]]=next_cost #"다음노드"로 가는 가중치 갱신
+                root[bus[0]] = root_to_now+[bus[0]]#경로도 갱신
+                heapq.heappush(q,(next_cost,bus[0],root[bus[0]]))#heap에 추가
         
 
 if __name__ == "__main__" :
