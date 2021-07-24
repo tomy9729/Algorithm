@@ -4,12 +4,11 @@ import heapq
 import math
 input = sys.stdin.readline
 
-def dijkstra(start,visit,buses,costs,root) : 
+def dijkstra(start,buses,costs,root) : 
     q=[]
     root[start]=[start] #시작 경로 설정
     costs[start]=0
     heapq.heappush(q,(0,start,root[start])) #heap에 비용, 출발 노드, 경로 저장
-    visit[start]=True
 
     while q :
         cost, now, root_to_now = heapq.heappop(q) #가장 작은 가중치를 가진 노드 선택->현재 위치
@@ -31,12 +30,11 @@ if __name__ == "__main__" :
         start, end, cost = map(int,input().split())
         buses[start].append([end,cost])
     
-    visit = [False]*(n+1)
     costs = [int(1e9)]*(n+1)
     start, end = map(int,input().split())
     root=[[]for _ in range(n+1)]
 
-    dijkstra(start,visit,buses,costs,root)
+    dijkstra(start,buses,costs,root)
     print(costs[end])
     print(len(root[end]))
     print(" ".join(map(str,root[end])))
