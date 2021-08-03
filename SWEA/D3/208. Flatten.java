@@ -17,7 +17,7 @@ public class Flatten {
 	private static int minIndex;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+		StringBuilder sb = new StringBuilder();
 		for(int i=1;i<=10;i++) {
 			dumpCount = Integer.parseInt(br.readLine());
 			String line = br.readLine();
@@ -48,7 +48,8 @@ public class Flatten {
 				box.set(maxIndex, maxNum-1);
 				box.set(minIndex, minNum+1);
 			}
-			System.out.printf("#%d %d\n",i,maxNum-minNum);
+			sb.append("#").append(i).append(" ").append(maxNum-minNum).append("\n");
 		}
+		System.out.println(sb.toString());
 	}
 }
