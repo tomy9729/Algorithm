@@ -1,11 +1,11 @@
-//4486번 녹색 옷 입은 애가 젤다지?.java
+//4485번 녹색 옷 입은 애가 젤다지?.java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class 녹색_옷_입은_애가_젤다지_4486 {
+public class 녹색_옷_입은_애가_젤다지_4485 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static StringBuilder sb = new StringBuilder();
