@@ -23,22 +23,20 @@ public class 회문_17609 {
 				if(str.charAt(head)==str.charAt(tail)) {
 					head++;
 					tail--;
-					continue;
 				}
-				if(str.charAt(head+1)==str.charAt(tail)) {
-					if(isPalindrome(str.substring(head+1,tail+1))) {
-						answer = 1;
-						break;
-					}
+				else if(isPalindrome(str.substring(head+1,tail+1))) {
+					answer = 1;
+					break;
 				}
-				if(str.charAt(head)==str.charAt(tail-1) ) {
-					if(isPalindrome(str.substring(head,tail))) {
-						answer = 1;
-						break;
-					}
+				else if(isPalindrome(str.substring(head,tail))) {
+					answer = 1;
+					break;
 				}
-				answer=2;
-				break;
+				else {
+					answer=2;
+					break;
+				}
+				
 			}
 			sb.append(answer+"\n");
 		}
