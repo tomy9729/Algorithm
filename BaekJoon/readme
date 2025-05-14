@@ -1,1 +1,9 @@
 BaekJoon에서 푼 문제들을 올리는 공간입니다.
+
+# JS
+
+-   vscode에서 문제 풀이 시
+    해당 폴더에 input.txt를 만들고,
+    const input = require("fs").readFileSync("./input.txt").toString().split("\n");
+-   정답 제출시
+    const input = require('fs').readFileSync('/dev/stdin').toString().split("\n")
